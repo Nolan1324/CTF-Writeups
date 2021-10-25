@@ -94,5 +94,7 @@ Since I am executing **all** cells, the HTML will be regenerated and the event w
 This had the desired effect of running all of the cells whenever I opened the notebook!
 Thus all that was left was to upload this to the app server and have the bot open it for me and send me the flag.
 
+## Solution Source
 
+https://github.com/Nolan1324/CTF-Writeups/blob/main/buckeye-2021/jupyter/notebook.ipynb
 
