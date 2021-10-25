@@ -1,6 +1,6 @@
 # BuckeyeCTF 2021 - `web/jupyter`
 
-## Task Description
+## Challenge Description
 
 Upload a Jupyter notebook and the admin bot will take a look at it :)
 
@@ -12,7 +12,7 @@ Note: Try to be gentle with the server
 
 Use HTML cell to place XSS on the Jupyter notebook which forces the bot to run a code cell with Python code that exfiltrates the flag.
 
-## Task Analysis
+## Challenge Analysis
 
 This challenge contains two components: the `app` and the `bot`. The `app` is a web app that serves a simple file upload for [Jupyter notebooks](https://jupyter.org/),
 which are documents that contain Python code cells and display their output.
