@@ -63,8 +63,7 @@ However, there is still a problem: when the bot reads the Jupyter notebook, it d
 
 I noticed in the bot that `window.IPython.notebook.close_and_halt()` gets called in order to stop the notebook.
 This implies that Jupyter has some Javascript functions that we could possibly leverage to get the bot to run the code cell.
-After some digging, I found that running the Javascript `IPython.notebook.execute_all_cells()` on the page will run all code cells.
-I tried to write a script that would execute only one cell, but I had issues with this working consistently.
+After some digging, I found that running the Javascript `IPython.notebook.execute_cells([0])` on the page will run the first code cell.
 
 Now all we need is some XSS on our Jupyter notebook page to run this Javascript.
 I found that in Jupyter you can have a code cell output HTML by using the following syntax in a code cell.
@@ -85,13 +84,10 @@ but I decided to just use the quick solution of having an invalid `img` element 
 
 ```html
 %%html
-<img src='http://example.com' onerror='if(!window.loaded) IPython.notebook.execute_all_cells(); window.loaded = true' />
+<img src='http://example.com' onerror='IPython.notebook.execute_cells([0]);' />
 ```
 
-The purpose of creating the `window.loaded` variable is just so that the script doesn't keep running itself.
-Since I am executing **all** cells, the HTML will be regenerated and the event will fire again.
-
-This had the desired effect of running all of the cells whenever I opened the notebook!
+This had the desired effect of running the first cell whenever I opened the notebook!
 Thus all that was left was to upload this to the app server and have the bot open it for me and send me the flag.
 
 ## Solution Source
