@@ -1,6 +1,18 @@
 # BuckeyeCTF 2021 - `web/jupyter`
 
-## Description
+## Task Description
+
+Upload a Jupyter notebook and the admin bot will take a look at it :)
+
+URL: http://3.21.105.111
+
+Note: Try to be gentle with the server
+
+## Solution Summary
+
+Use HTML cell to place XSS on the Jupyter notebook which forces the bot to run a code cell with Python code that exfiltrates the flag.
+
+## Task Analysis
 
 This challenge contains two components: the `app` and the `bot`. The `app` is a web app that serves a simple file upload for [Jupyter notebooks](https://jupyter.org/),
 which are documents that contain Python code cells and display their output.
@@ -18,7 +30,7 @@ After a timeout, it will then call `window.IPython.notebook.close_and_halt()` to
 The app also a contains `run.sh` which immediately moves the file containing the flag to `/flag_{rand}.txt`, where `rand` is a random hex string.
 Our goal therefore is to read this file.
 
-## Solution
+## Solution Walkthrough
 
 Since Jupyter notebooks contain code cells that execute Python code on the local machine, we should be able to get the flag if the bot runs a code cell while viewing the Jupyter notebook.
 Even though the bot is viewing the notebook, executed code cells will run on the app, since the app is the server hosting the Jupyter notebook.
