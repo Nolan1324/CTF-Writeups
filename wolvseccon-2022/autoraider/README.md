@@ -1,6 +1,12 @@
 
 # WolvSec Security Conference 2022 - `web/autoraider`
 
+- [Challenge Description](#Challenge-Description)
+- [Solution Summary](#Solution-Summary)
+- [Challenge Analysis](#Challenge-Analysis)
+- [Solution Walkthrough](#Solution-Walkthrough)
+- [Solve Script](#Solve-Script)
+
 This is my writeup for Autoraider, a web challenge I wrote for the 2022 WolvSec Security Conference. It is inspired by 
 [autograder.io](https://autograder.io/), a website used in EECS classes at the University of Michigan to automatically grade project code.
 
