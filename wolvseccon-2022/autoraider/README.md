@@ -227,6 +227,7 @@ import requests
 
 url_base = 'https://autoraider-bvel4oasra-uc.a.run.app/'
 
+# Set up a session since the correct answers and pass status are stored in a session
 s = requests.Session()
 
 # Uploads code to the autograder
