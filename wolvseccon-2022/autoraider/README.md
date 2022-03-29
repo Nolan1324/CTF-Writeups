@@ -7,6 +7,8 @@
 - [Solution Walkthrough](#Solution-Walkthrough)
 - [Solve Script](#Solve-Script)
 
+The challenge source and `docker-compose.yml` is available [here](https://github.com/Nolan1324/autoraider-wolvsec-ctf).
+
 This is my writeup for Autoraider, a web challenge I wrote for the 2022 WolvSec Security Conference. It is inspired by 
 [autograder.io](https://autograder.io/), a website used in EECS classes at the University of Michigan to automatically grade project code.
 
